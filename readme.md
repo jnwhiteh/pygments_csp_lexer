@@ -10,6 +10,6 @@ installation by checking the output of `pygmentize -L`.
 
 ## Credit
 
-Some regular expressions taken from [1], although most have been altered.
+Some regular expressions taken from [cspm-textmate][1], although most have been altered.
 
 [1]: https://github.com/tomgr/cspm-textmate
