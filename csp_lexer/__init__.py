@@ -1,4 +1,4 @@
-from pygments.lexer import RegexLexer
+from pygments.lexer import RegexLexer, bygroups, using, this
 from pygments.token import *
 
 class CSPLexer(RegexLexer):
@@ -14,7 +14,6 @@ class CSPLexer(RegexLexer):
 
                 # whitespace
                 (r'\n', Text),
-                (r'[^\S\n]', Text),
 
                 (r'\[(FD|T|F)=', Keyword),
                 (r'\\|->|\[\]|\|~\||\|\|\||\[\||\|]|\[\[|\]\]|\|\|', Operator),
@@ -25,8 +24,9 @@ class CSPLexer(RegexLexer):
                 (r'\b(true|false|True|False)\b', Keyword.Constant),
                 (r'\b(length|length|null|head|tail|concat|elem|union|inter|diff|Union|Inter|member|card|empty|set|Set|Seq|seq|Int|Bool|Proc|Events|true|false|True|False|STOP|SKIP|CHAOS|prioritise|productions|extensions|diamond|normal|sbisim|tau_loop_factor|model_compress|explicate|wbisim|chase)\b', Name.Builtin),
                 (r'\(|\)|,|\[|\]', Punctuation),
-                (r'^\s*([a-zA-Z0-9_\']+)\s*(\(.*?\)|)\s*=', Name.Function),
+                (r'^(\s*)([a-zA-Z0-9_\']+)(\s*)(\(.*?\)|)(\s*=)', bygroups(Text, Name.Function, Text, using(this), Text)),
                 (r'[A-Za-z_][A-Za-z0-9_\']*', Name),
+                (r'[^\S\n]', Text),
                 ],
             "comment": [
                 # Multiline Comments
