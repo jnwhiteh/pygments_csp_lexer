@@ -18,7 +18,7 @@ class CSPLexer(RegexLexer):
 
                 (r'\[(FD|T|F)=', Keyword),
                 (r'\\|->|\[\]|\|~\||\|\|\||\[\||\|]|\[\[|\]\]|\|\|', Operator),
-                (r'{\||\|}|{|}|\.\.|:|#|<-|<->|==|<|>|<=|>=|@|&|[+-/*%^]', Operator),
+                (r'{\||\|}|{|}|\.\.|:|#|<-|<->|==|<|>|<=|>=|@|&|=|[+-/*%^]', Operator),
                 (r'\b(assert|datatype|let|within|newtype|channel|external|transparent)\b', Keyword),
                 (r'\b(if|then|else)\b', Keyword),
                 (r'\b([0-9]+)\b', Number.Integer),
